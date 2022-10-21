@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   selector: '.app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [DatePipe]
+  providers: [DatePipe, GoogleService]
 })
 
 
@@ -23,9 +23,11 @@ export class AppComponent {
   
   status: boolean = false;
 
-  constructor (private datePipe: DatePipe) {
+  constructor (private datePipe: DatePipe, private googleService: GoogleService) {
     this.datetimelocale = this.datePipe.transform(new Date(), 'dd-MM-yyyy hh:mm a');
     this.showErrorAlert();
+    let api = googleService.getData();
+    console.log(api);
 
     // var gsearch = function() {
     //   var url = 'https://www.google.com/search?q=' + document.getElementById('searchme').value;
