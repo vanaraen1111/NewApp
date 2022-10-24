@@ -52,6 +52,14 @@ export class ChangepasswordComponent implements OnInit {
           ]
          ,]
          ,
+         currentpassword: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(40),
+          ]
+         ,],
         confirmPassword: ['', Validators.required],
       },
       {
@@ -72,7 +80,7 @@ export class ChangepasswordComponent implements OnInit {
       alert ("Password successfully changed");
       this.setValue();
       alert ("new password :: "+ this.newPasswordValue);
-      window.location.reload();
+      window.location.href = "http://localhost:4200/MyProfile"
     }
 
     console.log(JSON.stringify(this.form.value, null, 2));

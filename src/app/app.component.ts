@@ -35,7 +35,7 @@ export class AppComponent {
 
   constructor (private datePipe: DatePipe, private googleService: GoogleService) {
     this.datetimelocale = this.datePipe.transform(new Date(), 'dd-MM-yyyy hh:mm a');
-    if (this.mainFlag == true) this.showErrorAlert();
+    this.showErrorAlert();
     let api = googleService.getData();
     console.log(api);
 
@@ -73,6 +73,7 @@ export class AppComponent {
   }
 
   showErrorAlert() {
+    if (window.location.href == "http://localhost:4200/") 
     Swal.fire('WARNING', 'This site is not affiliated to Google', 'error')
   }
 
