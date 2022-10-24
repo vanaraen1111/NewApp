@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     appComponent.routeName = "Sign-In";
     appComponent.hideMain();
     appComponent.signInFlag = true;
-    appComponent.hook1 = "";
+    appComponent.resetHooks();
     appComponent.status = true;
     appComponent.headerLineFlag = true;
   }

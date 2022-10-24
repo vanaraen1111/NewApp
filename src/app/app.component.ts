@@ -21,12 +21,16 @@ export class AppComponent {
   hook3 = "";
   routeName = "";
 
+  
+
   public mainFlag:boolean = true;
   public signInFlag:boolean = false;
   public loginButtonFlag:boolean = true;
   public headerLineFlag:boolean = false;
   public profileFlag:boolean = false;
-  
+  public ariaExpanded: string = "false";
+
+
   status: boolean = false;
 
   constructor (private datePipe: DatePipe, private googleService: GoogleService) {
@@ -55,6 +59,15 @@ export class AppComponent {
 
   }
 
+
+  setRouteName (name: string) {
+    this.routeName = name;
+  }
+
+  setActiveHook1() {
+    this.ariaExpanded = "true";
+  }
+
   hideLoginButton() {
     this.loginButtonFlag = false;
   }
@@ -71,9 +84,15 @@ export class AppComponent {
     this.mainFlag = true;
   }
 
+  resetHooks() {
+    this.hook1 = "";  
+    this.hook2 = "";  
+    this.hook3 = "";  
+  }
+
   routeToHome() {
     this.resetRouteName();
-    this.resetHook1();
+    this.resetHooks();
     this.hideSidebar();
     this.showMain();
     this.headerLineFlag = false;
@@ -99,9 +118,6 @@ export class AppComponent {
     this.headerLineFlag = true;
   }
 
-  resetHook1() {
-    this.hook1 = "";  
-  }
 
   //Sidebar toggle
   clickEvent(){

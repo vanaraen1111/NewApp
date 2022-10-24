@@ -9,7 +9,7 @@ import { AppComponent } from '../app.component';
 export class DashboardComponent implements OnInit {
   constructor(private appComponent: AppComponent) { 
     appComponent.routeName = "Dashboard";
-    appComponent.resetHook1();
+    appComponent.resetHooks();
     appComponent.hideSidebar();
     appComponent.showMain();
     appComponent.headerLineFlag = false;

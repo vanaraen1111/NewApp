@@ -10,7 +10,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private appComponent: AppComponent) { 
     appComponent.hideLoginButton();
-    appComponent.routeName = "My Profile";
+    appComponent.setRouteName("My Profile");
     appComponent.profileFlag = true;
     appComponent.hook1 = "Change Password";
     appComponent.hook1routerLink = "/ChangePassword";
@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
     appComponent.headerLineFlag = true;
     appComponent.hideMain();
   }
+
+
 
   mockProfile = {
     username : 'Administrator',
