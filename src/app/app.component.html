@@ -50,8 +50,10 @@
                     <span class="header-right">{{datetimelocale}}</span><br>
                     <ng-container ngIf*="loginButtonFlag"> <span class="header-right sign-in-button" routerLink="/SignIn" 
                         >Login</span></ng-container>
+                        <br>
+                        <hr *ngIf="signInFlag">
                   </header>
-                
+
                 <router-outlet></router-outlet></div>
                 <ng-container *ngIf="mainFlag">
 
