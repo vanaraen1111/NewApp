@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { AuthenticateService } from '../utils/authenticate.service';
 
 @Component({
   selector: 'app-logout',
@@ -8,7 +9,8 @@ import { AppComponent } from '../app.component';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private appComponent: AppComponent)  { 
+  constructor(private appComponent: AppComponent, private auth : AuthenticateService )  { 
+    if (auth.authenticate(appComponent.authenticated) === true) {
     localStorage.clear();
     appComponent.hideLoginButton();
     appComponent.routeName = "Logout";
@@ -18,6 +20,7 @@ export class LogoutComponent implements OnInit {
     appComponent.headerLineFlag = true;
     appComponent.authenticated = false;
     appComponent.loginButtonFlag = true;
+    }
   }
 
   ngOnInit(): void {

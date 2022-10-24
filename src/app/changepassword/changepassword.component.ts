@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import Validation from '../utils/validation';
-import { Router } from '@angular/router';
+import { AuthenticateService } from '../utils/authenticate.service';
 
 @Component({
   selector: 'app-changepassword',
@@ -24,7 +24,8 @@ export class ChangepasswordComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private appComponent: AppComponent, private formBuilder: FormBuilder) { 
+  constructor(private appComponent: AppComponent, private formBuilder: FormBuilder, private auth : AuthenticateService ) { 
+    if (auth.authenticate(appComponent.authenticated) === true) {
     appComponent.hideLoginButton();
     appComponent.setRouteName("My Profile");
     appComponent.profileFlag = true;
@@ -37,6 +38,7 @@ export class ChangepasswordComponent implements OnInit {
     appComponent.hideMain();
     appComponent.setRouteName("My Profile / Change Password");
     appComponent.setActiveHook1();
+    }
 
   }
 
