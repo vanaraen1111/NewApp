@@ -19,14 +19,18 @@ export class LoginComponent implements OnInit {
   public LoginForm:boolean = true;
   public forgotPasswordForm:boolean = false;
 
+
+  mockCred = {
+    email: 'admin@gmail.com',
+    password: 'admin1234'
+  };
+
+  public emailValue : String = '';
+  public passwordValue: String= '';
+
   form: FormGroup = new FormGroup({
-    // fullname: new FormControl(''),
-    // username: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl('')
-    // ,
-    // confirmPassword: new FormControl(''),
-    // acceptTerms: new FormControl(false),
   });
   submitted = false;
 
@@ -43,15 +47,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        // fullname: ['', Validators.required],
-        // username: [
-        //   '',
-        //   [
-        //     Validators.required,
-        //     Validators.minLength(6),
-        //     Validators.maxLength(20),
-        //   ],
-        // ],
         email: ['', [Validators.required, Validators.email]],
         password: [
           '',
@@ -61,13 +56,7 @@ export class LoginComponent implements OnInit {
             Validators.maxLength(40),
           ]
          ,],
-        // confirmPassword: ['', Validators.required],
-        // acceptTerms: [false, Validators.requiredTrue],
       }
-      // ,
-      // {
-      //   validators: [Validation.match('password', 'confirmPassword')],
-      // }
     );
   }
 
@@ -81,9 +70,25 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-
+    this.setValue();
     console.log(JSON.stringify(this.form.value, null, 2));
   }
+
+  setValue() {
+    this.emailValue=this.form.get('email')?.value; 
+    this.passwordValue=this.form.get('password')?.value; 
+    this.checkCredential(this.emailValue, this.passwordValue);
+  }
+
+  checkCredential(email: String, pw: String) {
+    if (email === this.mockCred.email && pw === this.mockCred.password ) {
+      alert ("Login success");
+      //redirect to profile
+    } else {
+      alert ("Login failed!");
+    }
+  }
+
 
   onReset(): void {
     this.submitted = false;
