@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import Validation from '../utils/validation';
-import { AuthenticateService } from '../utils/authenticate.service';
+import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
   selector: 'app-changepassword',
