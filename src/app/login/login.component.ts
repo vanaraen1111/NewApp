@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     appComponent.signInFlag = true;
     appComponent.hook1 = "";
     appComponent.status = true;
+    appComponent.headerLineFlag = true;
   }
 
   ngOnInit(): void {

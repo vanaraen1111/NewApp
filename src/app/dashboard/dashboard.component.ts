@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
     appComponent.resetHook1();
     appComponent.hideSidebar();
     appComponent.showMain();
+    appComponent.headerLineFlag = false;
   }
 
   ngOnInit(): void {

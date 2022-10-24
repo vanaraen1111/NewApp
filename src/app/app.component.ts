@@ -20,6 +20,7 @@ export class AppComponent {
   public mainFlag:boolean = true;
   public signInFlag:boolean = false;
   public loginButtonFlag:boolean = true;
+  public headerLineFlag:boolean = false;
   
   status: boolean = false;
 
@@ -70,6 +71,7 @@ export class AppComponent {
     this.resetHook1();
     this.hideSidebar();
     this.showMain();
+    this.headerLineFlag = false;
   }
 
   // routeToDashboard() {
@@ -89,6 +91,7 @@ export class AppComponent {
     this.signInFlag = true;
     this.hook1 = "";
     this.status = true;
+    this.headerLineFlag = true;
   }
 
   resetHook1() {
