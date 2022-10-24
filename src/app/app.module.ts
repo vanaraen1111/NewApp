@@ -11,6 +11,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LogoutComponent } from './logout/logout.component';
     ChangepasswordComponent,
     ProductsComponent,
     ProductComponent,
-    LogoutComponent
+    LogoutComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
