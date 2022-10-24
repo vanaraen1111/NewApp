@@ -15,18 +15,23 @@ export class AppComponent {
   title = 'GOOGLE';
   datetimelocale;
   hook1 = "";
+  hook1routerLink = ""
+  hook2 = "";
+  hook2routerLink = ""
+  hook3 = "";
   routeName = "";
 
   public mainFlag:boolean = true;
   public signInFlag:boolean = false;
   public loginButtonFlag:boolean = true;
   public headerLineFlag:boolean = false;
+  public profileFlag:boolean = false;
   
   status: boolean = false;
 
   constructor (private datePipe: DatePipe, private googleService: GoogleService) {
     this.datetimelocale = this.datePipe.transform(new Date(), 'dd-MM-yyyy hh:mm a');
-    this.showErrorAlert();
+    if (this.mainFlag == true) this.showErrorAlert();
     let api = googleService.getData();
     console.log(api);
 

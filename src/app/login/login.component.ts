@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { AppRoutingModule, routingComponents } from '../app-routing.module';
 import {
   AbstractControl,
   FormBuilder,
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
 
-  constructor(private appComponent: AppComponent, private formBuilder: FormBuilder) { 
+  constructor(private appComponent: AppComponent, private formBuilder: FormBuilder, private routingModule : AppRoutingModule) { 
     appComponent.hideLoginButton();
     appComponent.routeName = "Sign-In";
     appComponent.hideMain();
@@ -85,8 +86,9 @@ export class LoginComponent implements OnInit {
     if (email === this.mockCred.email && pw === this.mockCred.password ) {
       alert ("Login success");
       //redirect to profile
+      window.location.href = 'http://localhost:4200/MyProfile';
     } else {
-      alert ("Login failed!");
+      alert ("Invalid credentials,Login failed!");
     }
   }
 
