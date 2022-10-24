@@ -1,31 +1,89 @@
 <head>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-</head>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+  
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	  <!-- bootstrap css -->
+	 <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" /> 
+	  
+	  <style>
+		  a { cursor: pointer; }
+	  </style>
+  </head>
 <div class="global-container">
-	<div class="card login-form">
-	<div class="card-body">
-		<h3 class="card-title text-center">Login</h3>
-		<div class="card-text">
-			<!--
-			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-			<form>
-				<!-- to error: add class "has-danger" -->
-				<div class="form-group">
-					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<a href="#" style="float:right;font-size:12px;">Forgot password?</a>
-					<input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
-				</div>
-				<button type="submit" class="btn btn-primary btn-block">Sign in</button>
-				
-				<div class="sign-up">
-					Don't have an account? <a href="#">Create One</a>
-				</div>
-			</form>
-		</div>
-	</div>
+	<!-- 1. Login form-->
+	<div class="container"  *ngIf="LoginForm">
+		<div class="row">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="card login-form" >
+							<div class="card-body">
+								<h3 class="card-title text-center">Login</h3>
+								<div class="card-text">
+									<!--
+									<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+									<form>
+										<!-- to error: add class "has-danger" -->
+										<div class="form-group">
+											<label for="exampleInputEmail1">Email address</label>
+											<input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Password</label>
+											<a style="float:right;font-size:12px;"  (click)="toggleForm()">Forgot password?</a>
+											<input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+										</div>
+										<button type="submit" class="btn btn-primary btn-block">Sign in</button>
+										
+										<div class="sign-up">
+											Don't have an account? <a href="#">Create One</a>
+										</div>
+									</form>
+								</div>
+							</div>
+							</div>
+							</div></div></div></div></div></div>
+
+	<!-- 2. Forgot Password form-->
+
+	<hr>
+<div class="container"  *ngIf="forgotPasswordForm">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-center">
+                          <h3><i class="fa fa-lock fa-4x"></i></h3>
+                          <h2 class="text-center">Forgot Password?</h2>
+                          <p>You can reset your password here.</p>
+                            <div class="panel-body">
+                              
+                              <form class="form">
+                                <fieldset>
+                                  <div class="form-group">
+                                    <div class="input-group">
+                                      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                      
+                                      <input id="emailInput" placeholder="email address" class="form-control" type="email" oninvalid="setCustomValidity('Please enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}" required="">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <input class="btn btn-lg btn-primary btn-block" value="Send My Password" type="submit">
+                                  </div>
+								  <button type="button" class="btn btn-outline-dark" (click)="toggleForm()">Back</button>
+                                </fieldset>
+                              </form>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>

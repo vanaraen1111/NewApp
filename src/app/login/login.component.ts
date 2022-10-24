@@ -8,6 +8,9 @@ import { AppComponent } from '../app.component';
 })
 export class LoginComponent implements OnInit {
   
+  public LoginForm:boolean = true;
+  public forgotPasswordForm:boolean = false;
+
   constructor(private appComponent: AppComponent) { 
     appComponent.hideLoginButton();
     appComponent.routeName = "Sign-In";
@@ -18,6 +21,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  toggleForm() {
+    this.LoginForm = !this.LoginForm;
+    this.forgotPasswordForm= !this.forgotPasswordForm;
+
   }
 
 }
