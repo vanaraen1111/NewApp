@@ -20,20 +20,34 @@ export class AppComponent {
   hook2routerLink = ""
   hook3 = "";
   routeName = "";
-
-  
+ 
 
   public mainFlag:boolean = true;
   public signInFlag:boolean = false;
   public loginButtonFlag:boolean = true;
+  public logoutButtonFlag:boolean = false;
   public headerLineFlag:boolean = false;
   public profileFlag:boolean = false;
   public ariaExpanded: string = "false";
+  public authenticated: Boolean = false;
 
 
   status: boolean = false;
 
   constructor (private datePipe: DatePipe, private googleService: GoogleService) {
+    let authenticatedStr = localStorage.getItem('authenticated');
+    if (authenticatedStr== undefined) {
+      this.authenticated = false;
+    }
+    this.authenticated = authenticatedStr && JSON.parse(authenticatedStr);  
+
+    if (this.authenticated=== true && window.location.href !== "http://localhost:4200/" && window.location.href !== "http://localhost:4200/Dashboard") {
+      this.hideLoginButton();
+      this.showLogoutButton();
+    }
+
+    console.log("authenticated: "+this.authenticated);
+
     this.datetimelocale = this.datePipe.transform(new Date(), 'dd-MM-yyyy hh:mm a');
     this.showErrorAlert();
     let api = googleService.getData();
@@ -70,6 +84,10 @@ export class AppComponent {
 
   hideLoginButton() {
     this.loginButtonFlag = false;
+  }
+
+  showLogoutButton() {
+    this.logoutButtonFlag = true;
   }
 
   showErrorAlert() {

@@ -49,12 +49,19 @@
             <div id ="main2">
                 <header id="header-bar">
                     <span class="header-center header-footer-link" routerLink="/Dashboard">Dashboard&nbsp;&nbsp;</span>
-                    <span class="header-center header-footer-link" routerLink="/">Home</span>
+                    <span class="header-center header-footer-link" routerLink="/">Home&nbsp;&nbsp;</span>
+                    <ng-container  *ngIf="authenticated"> <span class="header-center header-footer-link" routerLink="/MyProfile">My Profile&nbsp;&nbsp;</span></ng-container>
                     <span class="header-right">{{datetimelocale}}</span><br>
-                    <ng-container ngIf*="loginButtonFlag"> <span class="header-right sign-in-button" routerLink="/SignIn" 
+                    <ng-container *ngIf="loginButtonFlag"> <span class="header-right sign-in-button" routerLink="/SignIn" 
                         >Login</span></ng-container>
+                    <ng-container *ngIf="authenticated"> <span class="header-right sign-out-button" routerLink="/Logout" 
+                            >Logout</span></ng-container>
+
+                        
+                        
                         <br>
                         <hr *ngIf="headerLineFlag">
+
                   </header>
 
                 <router-outlet></router-outlet></div>

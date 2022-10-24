@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductComponent } from './product/product.component';
     routingComponents,
     ChangepasswordComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

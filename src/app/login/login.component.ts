@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   public LoginForm:boolean = true;
   public forgotPasswordForm:boolean = false;
 
-
   mockCred = {
     email: 'admin@gmail.com',
     password: 'admin1234'
@@ -85,6 +84,7 @@ export class LoginComponent implements OnInit {
   checkCredential(email: String, pw: String) {
     if (email === this.mockCred.email && pw === this.mockCred.password ) {
       alert ("Login success");
+      localStorage.setItem('authenticated', "true");
       //redirect to profile
       window.location.href = 'http://localhost:4200/MyProfile';
     } else {

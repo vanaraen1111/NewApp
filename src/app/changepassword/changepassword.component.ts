@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import Validation from '../utils/validation';
-import { ProfileComponent } from '../profile/profile.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-changepassword',
@@ -80,7 +80,7 @@ export class ChangepasswordComponent implements OnInit {
       alert ("Password successfully changed");
       this.setValue();
       alert ("new password :: "+ this.newPasswordValue);
-      window.location.href = "http://localhost:4200/MyProfile"
+      window.location.href = "MyProfile"
     }
 
     console.log(JSON.stringify(this.form.value, null, 2));

@@ -27,6 +27,6 @@ export class ProductsComponent implements OnInit {
   }
 
   goProductDetail(event: any) {
-    window.location.href = "http://localhost:4200/Product/"+event.target.text;
+    window.location.href = "Product/"+event.target.text;
   }
 }
