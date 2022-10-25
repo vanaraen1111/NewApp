@@ -30,7 +30,7 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let product of products">
-                      <td><a (click)="goProductDetail($event)">{{ product.id }}</a></td>
+                      <td><a [routerLink]="['/Product', product.id]">{{ product.id }}</a></td>
                       <td>{{ product.name}}</td>
                       <td>{{ product.description }}</td>
                       <td><img height = 250 width = 350 src ="{{ product.image }}"></td>

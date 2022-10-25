@@ -25,8 +25,8 @@ export class ProductService {
   //  return this.http.get(`${this.API_URL + 'product'}/${productId}`) 
   // }
 
-  getProduct(productId: string) : Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.API_URL + 'product'}/${productId}`).pipe(
+  getProduct(productId: String) : Observable<Product[]> {
+    return this.http.get<Product[]>(this.API_URL + 'product/'+productId).pipe(
       retry(2),
       catchError((error: HttpErrorResponse) => {
         console.error(error);
