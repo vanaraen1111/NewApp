@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'MyProfile',  component: ProfileComponent},
   {path:'ChangePassword',  component: ChangepasswordComponent},
   {path:'Products',   component: ProductsComponent},
-  {path:'Product',  component:  ProductComponent},
+  {path:'Product', pathMatch: "full", component:  ProductComponent},
   {path:'Product/:id', redirectTo: '/Product'},
   {path:'Logout',  component: LogoutComponent},
   {path:'Unauthorized',  component: UnauthorizedComponent}

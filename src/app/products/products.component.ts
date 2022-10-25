@@ -40,4 +40,8 @@ export class ProductsComponent implements OnInit {
     console.log(this.productService.getProducts().subscribe(products => this.products = products));
     this.productService.getProducts().subscribe(products => this.products = products);
   }
+
+  goProductDetail(event: any) {
+    window.location.href = "http://localhost:3000/products/"+event.target.text;
+  }
 }

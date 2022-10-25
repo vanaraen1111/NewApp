@@ -3,3 +3,9 @@ GET https://www.google.com
 
 
 GET http://localhost:4200/api/products
+###
+
+http://localhost:3000/products
+
+###
+http://localhost:3000/products/1
