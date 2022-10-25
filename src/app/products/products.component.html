@@ -18,9 +18,9 @@
 						<div class="panel-body">
 							<h3 class="card-title text-center">Products</h3>
 							<div class="product-table col-md-12">
-                <table class="table">
+                <table  id="products" class="table">
                   <thead>
-                    <tr>
+                    <tr >
                       <th scope="col md-3">ID</th>
                       <th scope="col md-3">Name</th>
                       <th scope="col md-3">Description</th>
@@ -29,26 +29,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td><a (click)="goProductDetail($event)">1</a></td>
-                      <td>Myvi</td>
-                      <td>Otto</td>
-                      <td><img height = 250 width = 250 src ="https://img.icarcdn.com/autospinn-my/body/000000000092_015ecdac_909a_462f_92a6_d5ee054197ed.jpg"></td>
-                      <td>RM</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>X50</td>
-                      <td>Thornton</td>
-                      <td><img height = 250 width = 250 src ="https://images.wapcar.my/file1/448d0090835c4ee6ab2fad5cb6ac27da_1072x604.jpg"></td>
-                      <td>RM</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Honda HRV</td>
-                      <td>the Bird</td>
-                      <td><img height = 250 width = 250 src ="https://evault.honda.com.my/pixelvault/2022-07/1ef0ad7ef7d11c88532905eab1fa1371d4ffe42666172.png"></td>
-                      <td>RM</td>
+                    <tr *ngFor="let product of products">
+                      <td><a (click)="goProductDetail($event)">{{ product.id }}</a></td>
+                      <td>{{ product.name}}</td>
+                      <td>{{ product.description }}</td>
+                      <td><img height = 250 width = 350 src ="{{ product.image }}"></td>
+                      <td>{{ product.pricerange }}</td>
                     </tr>
                   </tbody>
                 </table>

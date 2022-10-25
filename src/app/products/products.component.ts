@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { AuthenticateService } from '../services/authenticate.service';
-
+import { ProductService } from '../services/product.service';
+import { Product } from './products.model';
 
 @Component({
   selector: 'app-products',
@@ -9,8 +10,16 @@ import { AuthenticateService } from '../services/authenticate.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
-  constructor(private appComponent: AppComponent, private auth : AuthenticateService ) { 
+  product = {
+    id: null,
+    name : '',
+    description : '',
+    image: '',
+    pricerange: ''
+  }
+  products: Product[] = [];
+  
+  constructor(private appComponent: AppComponent, private auth : AuthenticateService, private productService: ProductService ) { 
     if (auth.authenticate(appComponent.authenticated) === true) {
       appComponent.hideLoginButton();
       appComponent.setRouteName("My Profile");
@@ -28,6 +37,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.productService.getProducts().subscribe(products => this.products = products);
   }
 
   goProductDetail(event: any) {

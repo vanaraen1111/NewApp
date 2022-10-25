@@ -12,6 +12,8 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';  
+import { BackendService } from "./services/backend.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     AppRoutingModule,
     HttpClientModule,
     MatSidenavModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InMemoryWebApiModule.forRoot(BackendService)
     
   ],
   providers: [],
